@@ -1,6 +1,6 @@
 node_modules/
-server/node_modules
-server/.env
-client/node_modules
-client/.env
+packages/server/node_modules
+packages/server/.env
+packages/client/node_modules
+packages/client/.env
 
