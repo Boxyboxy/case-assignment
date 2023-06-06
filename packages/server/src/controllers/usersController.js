@@ -33,7 +33,7 @@ module.exports = {
       error1.status = 401;
       throw error1;
     }
-    return res.json("You logged in!");
+    return res.json(user);
 
     // bcrypt.compare(password, user.password).then((match) => {
     //   if (!match) {

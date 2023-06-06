@@ -1,93 +1,32 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-import axios from "axios";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import RootLayout from "./layouts/RootLayout.js";
+import LoginRegister from "./pages/Login-register";
+import { UserContext } from "./components/UserContext";
+import TodoList from "./pages/Todo-list";
 
 function App() {
-  const [usernameReg, setUsernameReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
+  const [user, setUser] = useState(null);
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [registerStatus, setRegisterStatus] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
-
-  const handleRegister = () => {
-    axios
-      .post("http://localhost:8080/users/register", {
-        username: usernameReg,
-        password: passwordReg,
-      })
-      .then((response) => {
-        console.log(response);
-        setRegisterStatus(`User ${usernameReg} created successfully!`);
-      })
-      .catch((err) => {
-        console.log(err);
-        setRegisterStatus(err.response.data.error);
-      });
-  };
-
-  const handleLogin = () => {
-    axios
-      .post("http://localhost:8080/users/login", { username, password })
-      .then((response) => {
-        console.log(response);
-        setLoginStatus(`User ${username} logged in`);
-      })
-      .catch(function (err) {
-        setLoginStatus(err.response.data.error);
-      });
-  };
-
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+        <Route path="" element={<LoginRegister />} />
+        <Route path="/list" element={<TodoList />} />
+      </Route>
+    )
+  );
   return (
-    <div className="App">
-      <div className="registration">
-        <h1> Registration</h1>
-        <label>Username</label>
-        <input
-          type="text"
-          onChange={(e) => {
-            setUsernameReg(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => {
-            setPasswordReg(e.target.value);
-          }}
-        />
-
-        <button onClick={handleRegister}>Register</button>
-      </div>
-      {registerStatus != "" ? (
-        <h3>Register Status : {registerStatus}</h3>
-      ) : (
-        <></>
-      )}
-      <div className="login">
-        <h1> Login</h1>
-        <label>Username</label>
-        <input
-          type="text"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-
-        <button onClick={handleLogin}>Login</button>
-      </div>
-      {loginStatus != "" ? <h3>Login Status : {loginStatus}</h3> : <></>}
-    </div>
+    <UserContext.Provider value={{ user, setUser }}>
+      <RouterProvider router={router} />
+    </UserContext.Provider>
   );
 }
 
