@@ -43,10 +43,13 @@ export default function Login({ toggle }) {
           setPassword(e.target.value);
         }}
       />
-      <a href="/" onClick={toggle}>
-        Register
-      </a>
-      <button onClick={handleLogin}>Login</button>
+      <div className="buttons">
+        <a href="/" onClick={toggle}>
+          Register
+        </a>
+        <button onClick={handleLogin}>Login</button>
+      </div>
+
       {loginStatus !== "" ? <h3>Login Status : {loginStatus}</h3> : <></>}
     </div>
   );

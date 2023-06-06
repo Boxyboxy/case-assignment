@@ -12,14 +12,20 @@ export default function AddTaskModal({ fetchTasks }) {
   const handleClose = () => setOpen(false);
   const style = {
     position: "absolute",
-    top: "50%",
+    top: "30%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 300,
+    width: { xs: 200, lg: 450, xl: 450 },
     bgcolor: "#2b3452",
-
     boxShadow: 24,
     p: 4,
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: { xs: "column", lg: "row", xl: "row" },
+    alignItems: "centre",
+    rowGap: { xs: "12px" },
+    justifyContent: { lg: "space-between", xl: "space-between" },
+    borderRadius: { xs: "8px", lg: "16px", xl: "16px" },
   };
   const [taskName, setTaskName] = useState("");
   const handleSaveTask = () => {
@@ -45,15 +51,11 @@ export default function AddTaskModal({ fetchTasks }) {
   return (
     <>
       <button onClick={handleOpen}>Add</button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <label>Task</label>
+          <label>Add Task:</label>
           <input
+            className="add-task"
             type="text"
             onChange={(e) => {
               setTaskName(e.target.value);

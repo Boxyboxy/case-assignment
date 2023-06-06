@@ -25,8 +25,8 @@ export default function Register({ toggle }) {
       });
   };
   return (
-    <div className="registration">
-      <h1> Registration</h1>
+    <div className="register">
+      <h1> Register</h1>
       <label>Username</label>
       <input
         type="text"
@@ -41,10 +41,13 @@ export default function Register({ toggle }) {
           setPasswordReg(e.target.value);
         }}
       />
-      <a href="/" onClick={toggle}>
-        Login
-      </a>
-      <button onClick={handleRegister}>Register</button>
+      <div className="buttons">
+        <a href="/" onClick={toggle}>
+          Login
+        </a>
+        <button onClick={handleRegister}>Register</button>
+      </div>
+
       {registerStatus !== "" ? (
         <h3>Register Status : {registerStatus}</h3>
       ) : (

@@ -72,39 +72,37 @@ export default function TodoList() {
   }, [user]);
 
   return (
-    <div>
+    <div className="checklist">
       <h3>Checklist</h3>
-      <div className="checkList">
-        <div className="title">Your CheckList:</div>
-        <div className="list-container">
-          {checkList.map((item) => (
-            <div key={item.id}>
-              <input
-                id={item.id}
-                value={item.task}
-                type="checkbox"
-                onChange={handleCheck}
-                defaultChecked={item.done}
-              />
-              <span className={isChecked(item)}>
-                {item.file ? (
-                  <a className="no-decoration" href={item.file}>
-                    <button>View</button>
-                  </a>
-                ) : (
-                  <UploadFileModal item={item} fetchTasks={fetchTasks} />
-                )}
 
-                {item.task}
-              </span>
-            </div>
-          ))}
+      <div className="list-container">
+        {checkList.map((item) => (
+          <div className="list-row" key={item.id}>
+            <input
+              id={item.id}
+              value={item.task}
+              type="checkbox"
+              onChange={handleCheck}
+              defaultChecked={item.done}
+            />
 
-          <div className="modal">
-            <AddTaskModal fetchTasks={fetchTasks} />
+            {item.file ? (
+              <a className="no-decoration" href={item.file}>
+                <button>View</button>
+              </a>
+            ) : (
+              <UploadFileModal item={item} fetchTasks={fetchTasks} />
+            )}
+
+            <span className={isChecked(item)}>{item.task}</span>
           </div>
+        ))}
+
+        <div className="modal">
+          <AddTaskModal fetchTasks={fetchTasks} />
         </div>
       </div>
+
       <button onClick={handleLogout}>Logout</button>
     </div>
   );

@@ -10,14 +10,18 @@ export default function UploadFileModal({ item, fetchTasks }) {
   const handleClose = () => setOpen(false);
   const style = {
     position: "absolute",
-    top: "50%",
+    top: "30%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 300,
+    width: { xs: 200, lg: 600, xl: 600 },
     bgcolor: "#2b3452",
-
     boxShadow: 24,
     p: 4,
+    margin: "0 auto",
+    borderRadius: "16px",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: "12px",
   };
 
   const [file, setFile] = useState();
@@ -69,15 +73,12 @@ export default function UploadFileModal({ item, fetchTasks }) {
   return (
     <>
       <button onClick={handleOpen}>Attach</button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <label>Upload file for task #{item.task}</label>
-          <input type="file" onChange={handleFileChange} />
+          <label>
+            Upload file for task <i>{item.task}</i>
+          </label>
+          <input className="add-file" type="file" onChange={handleFileChange} />
           <button onClick={uploadFile}> Upload</button>
         </Box>
       </Modal>
