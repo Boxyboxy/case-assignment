@@ -1,13 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
-import { UserContext } from "../components/UserContext";
-import { useContext, useState, useEffect } from "react";
-export default function UploadFileModal({ item }) {
-  const { user, setUser } = useContext(UserContext);
+import { useState } from "react";
+export default function UploadFileModal({ item, fetchTasks }) {
   // modal attributes
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -23,16 +19,53 @@ export default function UploadFileModal({ item }) {
     boxShadow: 24,
     p: 4,
   };
-  const [taskName, setTaskName] = useState("");
-  const handleSaveTask = () => {
-    //TODO
+
+  const [file, setFile] = useState();
+
+  const handleFileChange = (e) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
+  };
+
+  // uploads file, updates database
+  const uploadFile = async () => {
+    if (!file) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "seagroup");
+    const uploadResponse = await axios.post(
+      "https://api.cloudinary.com/v1_1/dbq7yg58d/auto/upload/",
+      formData
+    );
+    console.log(uploadResponse.data.secure_url);
+
+    handleSaveTask(uploadResponse.data.secure_url, item.id);
+  };
+  // updates database and refetches all tasks
+  const handleSaveTask = (file_url, id) => {
+    const updateTask = async (file_url, id) => {
+      try {
+        const response = await axios.patch(
+          `http://localhost:8080/tasks/${id}`,
+          {
+            file: file_url,
+          }
+        );
+
+        console.log(response.data);
+        fetchTasks();
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    updateTask(file_url, id);
     handleClose();
   };
 
-  // creates individual task
-  const uploadFile = async () => {
-    // TODO
-  };
   return (
     <>
       <button onClick={handleOpen}>Attach</button>
@@ -44,13 +77,8 @@ export default function UploadFileModal({ item }) {
       >
         <Box sx={style}>
           <label>Upload file for task #{item.task}</label>
-          <input
-            type="text"
-            onChange={(e) => {
-              setTaskName(e.target.value);
-            }}
-          />
-          <button onClick={handleSaveTask}> Save</button>
+          <input type="file" onChange={handleFileChange} />
+          <button onClick={uploadFile}> Upload</button>
         </Box>
       </Modal>
     </>

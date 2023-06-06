@@ -1,11 +1,9 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import axios from "axios";
 import { UserContext } from "../components/UserContext";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 export default function AddTaskModal({ fetchTasks }) {
   const { user, setUser } = useContext(UserContext);
   // modal attributes

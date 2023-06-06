@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState, useEffect, ChangeEvent } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../components/UserContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -27,9 +27,10 @@ export default function TodoList() {
       );
 
       setCheckList(response.data);
+      console.log(response.data);
 
       const checkedTasks = response.data.filter(
-        (element) => element.done == true
+        (element) => element.done === true
       );
       setChecked(checkedTasks);
     } catch (err) {
@@ -87,9 +88,11 @@ export default function TodoList() {
               />
               <span className={isChecked(item)}>
                 {item.file ? (
-                  <button>View</button>
+                  <a className="no-decoration" href={item.file}>
+                    <button>View</button>
+                  </a>
                 ) : (
-                  <UploadFileModal item={item} />
+                  <UploadFileModal item={item} fetchTasks={fetchTasks} />
                 )}
 
                 {item.task}

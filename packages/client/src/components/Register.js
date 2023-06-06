@@ -45,7 +45,7 @@ export default function Register({ toggle }) {
         Login
       </a>
       <button onClick={handleRegister}>Register</button>
-      {registerStatus != "" ? (
+      {registerStatus !== "" ? (
         <h3>Register Status : {registerStatus}</h3>
       ) : (
         <></>

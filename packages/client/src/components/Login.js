@@ -47,7 +47,7 @@ export default function Login({ toggle }) {
         Register
       </a>
       <button onClick={handleLogin}>Login</button>
-      {loginStatus != "" ? <h3>Login Status : {loginStatus}</h3> : <></>}
+      {loginStatus !== "" ? <h3>Login Status : {loginStatus}</h3> : <></>}
     </div>
   );
 }
