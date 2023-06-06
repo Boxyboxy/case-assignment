@@ -34,15 +34,5 @@ module.exports = {
       throw error1;
     }
     return res.json(user);
-
-    // bcrypt.compare(password, user.password).then((match) => {
-    //   if (!match) {
-    //     const error1 = new Error("Wrong username and password combination");
-    //     error1.status = 401;
-    //     throw error1;
-    //   } else {
-    //     return res.json("You logged in!");
-    //   }
-    // });
   },
 };

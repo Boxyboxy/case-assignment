@@ -4,75 +4,111 @@
   --primary: #bc4123;
   --secondary: #2b3452;
 }
-
 * {
   color: #fff;
   margin: 0;
 }
+input {
+  color: black;
+}
+p {
+  margin: 20px 0;
+}
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Poppins";
+  background: var(--secondary);
+}
+button {
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+/* navbar */
+header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header nav h1 {
+  margin-right: auto;
+  border-bottom: 3px solid var(--primary);
+}
+header nav a {
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+}
+header nav a.active {
+  background: var(--primary);
+}
+/* page content */
+main {
+  width: 100vw;
+  margin: 40px auto;
+}
+.checked-item {
+  text-decoration: line-through;
+}
+.modal {
+  color: black;
+}
+.no-decoration {
+  text-decoration: none;
+}
+.login input {
+  color: black;
+  width: 100%;
+}
+.register input {
+  color: black;
+  width: 100%;
+}
+
+.buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.checklist {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  row-gap: 12px;
+}
+.list-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 400px;
+  row-gap: 12px;
+}
+
+.list-row {
+  display: flex;
+  column-gap: 12px;
+}
+
+.add-file {
+  color: #fff;
+}
 
 /* mobile devices*/
 @media (max-width: 480px) {
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: "Poppins";
-    background: var(--secondary);
-  }
-
-  input {
-    color: black;
-  }
-  p {
-    margin: 20px 0;
-  }
-  button {
-    border: 0;
-    padding: 8px;
-    border-radius: 4px;
-    color: white;
-    background: var(--primary);
-    cursor: pointer;
-  }
-
-  /* navbar */
-  header nav {
-    display: flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  header nav h1 {
-    margin-right: auto;
-    border-bottom: 3px solid var(--primary);
-  }
-  header nav a {
-    text-decoration: none;
-    padding: 6px;
-    border-radius: 4px;
-  }
-  header nav a.active {
-    background: var(--primary);
-  }
-
-  /* page content */
-  main {
-    width: 100vw;
-    margin: 40px auto;
-  }
-
-  .checked-item {
-    text-decoration: line-through;
-  }
-
-  .modal {
-    color: black;
-  }
-
-  .no-decoration {
-    text-decoration: none;
-  }
-
   .login {
     margin: 0 auto;
     display: flex;
@@ -80,10 +116,6 @@
     align-items: flex-start;
     width: 250px;
     row-gap: 12px;
-  }
-  .login input {
-    color: black;
-    width: 100%;
   }
 
   .register {
@@ -93,241 +125,15 @@
     align-items: flex-start;
     width: 250px;
     row-gap: 12px;
-  }
-  .register input {
-    color: black;
-    width: 100%;
-  }
-
-  .buttons {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .checklist {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-row {
-    display: flex;
-    column-gap: 12px;
   }
 
   .add-task {
     width: 193px;
   }
-
-  .add-file {
-    color: #fff;
-  }
 }
 
-/*large screens*/
-@media (min-width: 1024px) {
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: "Poppins";
-    background: var(--secondary);
-  }
-
-  input {
-    color: black;
-  }
-  p {
-    margin: 20px 0;
-  }
-  button {
-    border: 0;
-    padding: 8px;
-    border-radius: 4px;
-    color: white;
-    background: var(--primary);
-    cursor: pointer;
-  }
-
-  /* navbar */
-  header nav {
-    display: flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  header nav h1 {
-    margin-right: auto;
-    border-bottom: 3px solid var(--primary);
-  }
-  header nav a {
-    text-decoration: none;
-    padding: 6px;
-    border-radius: 4px;
-  }
-  header nav a.active {
-    background: var(--primary);
-  }
-
-  /* page content */
-  main {
-    width: 100vw;
-    margin: 40px auto;
-  }
-
-  .checked-item {
-    text-decoration: line-through;
-  }
-
-  .modal {
-    color: black;
-  }
-
-  .no-decoration {
-    text-decoration: none;
-  }
-
-  .login {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .login input {
-    color: black;
-    width: 100%;
-  }
-
-  .register {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .register input {
-    color: black;
-    width: 100%;
-  }
-
-  .buttons {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .checklist {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-row {
-    display: flex;
-    column-gap: 12px;
-  }
-
-  .add-task {
-    width: 300px;
-  }
-
-  .add-file {
-    color: #fff;
-  }
-}
 /*laptop screen*/
 @media (min-width: 768px) {
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: "Poppins";
-    background: var(--secondary);
-  }
-
-  input {
-    color: black;
-  }
-  p {
-    margin: 20px 0;
-  }
-  button {
-    border: 0;
-    padding: 8px;
-    border-radius: 4px;
-    color: white;
-    background: var(--primary);
-    cursor: pointer;
-  }
-
-  /* navbar */
-  header nav {
-    display: flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  header nav h1 {
-    margin-right: auto;
-    border-bottom: 3px solid var(--primary);
-  }
-  header nav a {
-    text-decoration: none;
-    padding: 6px;
-    border-radius: 4px;
-  }
-  header nav a.active {
-    background: var(--primary);
-  }
-
-  /* page content */
-  main {
-    width: 100vw;
-    margin: 40px auto;
-  }
-
-  .checked-item {
-    text-decoration: line-through;
-  }
-
-  .modal {
-    color: black;
-  }
-
-  .no-decoration {
-    text-decoration: none;
-  }
-
   .login {
     margin: 0 auto;
     display: flex;
@@ -335,10 +141,6 @@
     align-items: flex-start;
     width: 400px;
     row-gap: 12px;
-  }
-  .login input {
-    color: black;
-    width: 100%;
   }
 
   .register {
@@ -349,113 +151,14 @@
     width: 400px;
     row-gap: 12px;
   }
-  .register input {
-    color: black;
-    width: 100%;
-  }
-
-  .buttons {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .checklist {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-row {
-    display: flex;
-    column-gap: 12px;
-  }
 
   .add-task {
     width: 300px;
-  }
-
-  .add-file {
-    color: #fff;
   }
 }
 
 /*large screens*/
 @media (min-width: 1024px) {
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: "Poppins";
-    background: var(--secondary);
-  }
-
-  input {
-    color: black;
-  }
-  p {
-    margin: 20px 0;
-  }
-  button {
-    border: 0;
-    padding: 8px;
-    border-radius: 4px;
-    color: white;
-    background: var(--primary);
-    cursor: pointer;
-  }
-
-  /* navbar */
-  header nav {
-    display: flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  header nav h1 {
-    margin-right: auto;
-    border-bottom: 3px solid var(--primary);
-  }
-  header nav a {
-    text-decoration: none;
-    padding: 6px;
-    border-radius: 4px;
-  }
-  header nav a.active {
-    background: var(--primary);
-  }
-
-  /* page content */
-  main {
-    width: 100vw;
-    margin: 40px auto;
-  }
-
-  .checked-item {
-    text-decoration: line-through;
-  }
-
-  .modal {
-    color: black;
-  }
-
-  .no-decoration {
-    text-decoration: none;
-  }
-
   .login {
     margin: 0 auto;
     display: flex;
@@ -463,10 +166,6 @@
     align-items: flex-start;
     width: 400px;
     row-gap: 12px;
-  }
-  .login input {
-    color: black;
-    width: 100%;
   }
 
   .register {
@@ -491,36 +190,7 @@
     width: 100%;
   }
 
-  .checklist {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 400px;
-    row-gap: 12px;
-  }
-  .list-row {
-    display: flex;
-    column-gap: 12px;
-  }
-
   .add-task {
     width: 300px;
   }
-
-  .add-file {
-    color: #fff;
-  }
 }
-
-@media only screen and (max-width: 600px) {
-}
-/* column gap and row gap*/

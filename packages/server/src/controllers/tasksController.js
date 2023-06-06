@@ -19,7 +19,7 @@ module.exports = {
     try {
       const { userId } = req.params;
 
-      // +id converts a string to number
+      // +userId converts a string to number
       if (isNaN(userId) || +userId > Number.MAX_SAFE_INTEGER || +userId < 0) {
         const error = new Error("Category Id must be a valid number");
         error.status = 400;
@@ -41,7 +41,7 @@ module.exports = {
   async updateTaskById(req, res) {
     try {
       const { id } = req.params;
-
+      // +id converts a string to number
       if (isNaN(id) || +id > Number.MAX_SAFE_INTEGER || +id < 0) {
         const error = new Error("id  must be a valid number");
         error.status = 400;
