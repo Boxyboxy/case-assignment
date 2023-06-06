@@ -20,7 +20,7 @@ export default function Login({ toggle }) {
         console.log(response.data.id);
 
         setUser({ id: response.data.id, username: response.data.username });
-        setLoginStatus(`User ${user.username} logged in`);
+        setLoginStatus(`User ${username} logged in`);
         navigate("/list");
       })
       .catch(function (err) {

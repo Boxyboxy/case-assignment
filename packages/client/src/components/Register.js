@@ -15,7 +15,9 @@ export default function Register({ toggle }) {
       })
       .then((response) => {
         console.log(response);
-        setRegisterStatus(`User ${usernameReg} created successfully!`);
+        setRegisterStatus(
+          `User ${usernameReg} created successfully! Try logging in!`
+        );
       })
       .catch((err) => {
         console.log(err.response.data.error);
