@@ -1,8 +1,11 @@
 import React from "react";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, ChangeEvent } from "react";
 import { UserContext } from "../components/UserContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import AddTaskModal from "../components/AddTaskModal";
+import UploadFileModal from "../components/UploadFileModal";
+
 export default function TodoList() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -16,6 +19,7 @@ export default function TodoList() {
   ]);
   const [checked, setChecked] = useState([]);
 
+  // fetches all tasks with checkbox reflecting done status
   const fetchTasks = async () => {
     try {
       const response = await axios.get(
@@ -32,7 +36,7 @@ export default function TodoList() {
       console.log(err);
     }
   };
-
+  // update done status of individual task, fetchtasks endpoint call nested in this method
   const updateTask = async (checked, id) => {
     try {
       const response = await axios.patch(`http://localhost:8080/tasks/${id}`, {
@@ -53,18 +57,6 @@ export default function TodoList() {
     console.log(event.target.id);
     console.log(event.target.value);
     updateTask(event.target.checked, event.target.id);
-
-    // var updatedList = [...checked];
-    // if (event.target.checked) {
-    //   updatedList = [...checked, event.target.value];
-    // } else {
-    //   updatedList.splice(checked.indexOf(event.target.value), 1);
-    // }
-    // setChecked(updatedList);
-  };
-
-  const addChecklistItem = () => {
-    // TODO
   };
 
   const handleLogout = () => {
@@ -94,12 +86,20 @@ export default function TodoList() {
                 defaultChecked={item.done}
               />
               <span className={isChecked(item)}>
-                {item.file ? <button>View</button> : <button>Attach</button>}
+                {item.file ? (
+                  <button>View</button>
+                ) : (
+                  <UploadFileModal item={item} />
+                )}
+
                 {item.task}
               </span>
             </div>
           ))}
-          <button onClick={addChecklistItem}>Add</button>
+
+          <div className="modal">
+            <AddTaskModal fetchTasks={fetchTasks} />
+          </div>
         </div>
       </div>
       <button onClick={handleLogout}>Logout</button>

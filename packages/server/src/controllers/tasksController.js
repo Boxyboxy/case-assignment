@@ -2,6 +2,7 @@ const {
   getAllTasks,
   getTasksByUserId,
   updateTaskById,
+  createTask,
 } = require("../repositories/tasksRepository");
 
 module.exports = {
@@ -51,6 +52,16 @@ module.exports = {
       const updatedContribution = await updateTaskById(id, payload);
 
       return res.json(updatedContribution);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
+  async createTask(req, res) {
+    const { task, done, userId } = req.body;
+    try {
+      const createdTask = await createTask(task, done, userId);
+      return res.json(createdTask);
     } catch (err) {
       console.error(err);
     }

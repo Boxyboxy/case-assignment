@@ -24,4 +24,16 @@ module.exports = {
 
     return response;
   },
+
+  async createTask(taskName, done, userId) {
+    const currentDate = new Date();
+
+    return task.create({
+      task: taskName,
+      done,
+      userId,
+      created_at: currentDate,
+      updated_at: currentDate,
+    });
+  },
 };

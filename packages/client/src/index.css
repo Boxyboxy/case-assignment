@@ -73,3 +73,7 @@ main {
 .checked-item {
   text-decoration: line-through;
 }
+
+.modal {
+  color: black;
+}
