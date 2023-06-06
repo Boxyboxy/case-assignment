@@ -10,7 +10,7 @@ import {
 import RootLayout from "./layouts/RootLayout.js";
 import LoginRegister from "./pages/Login-register";
 import { UserContext } from "./components/UserContext";
-import TodoList from "./pages/Todo-list";
+import TodoList from "./pages/TodoList";
 
 function App() {
   const [user, setUser] = useState(null);

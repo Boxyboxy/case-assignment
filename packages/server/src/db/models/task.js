@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "task",
+      underscored: true,
     }
   );
   return task;
