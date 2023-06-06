@@ -1,0 +1,75 @@
+[
+  {
+    "task": "Go to www.mysql.com",
+    "user_id": 1,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "Download installer",
+    "user_id": 1,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "Execute",
+    "user_id": 1,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "review",
+    "user_id": 1,
+    "done": false,
+    "file": null
+  },
+
+  {
+    "task": "Apply for SEA Group",
+    "user_id": 2,
+    "done": true,
+    "file": null
+  },
+  {
+    "task": "Phone interview",
+    "user_id": 2,
+    "done": true,
+    "file": null
+  },
+  {
+    "task": "Coding assignment",
+    "user_id": 2,
+    "done": true,
+    "file": null
+  },
+  {
+    "task": "Documentation",
+    "user_id": 2,
+    "done": true,
+    "file": null
+  },
+  {
+    "task": "Onsite interview",
+    "user_id": 2,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "Cultural interview",
+    "user_id": 2,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "Learn Django",
+    "user_id": 2,
+    "done": false,
+    "file": null
+  },
+  {
+    "task": "First day at work",
+    "user_id": 2,
+    "done": false,
+    "file": null
+  }
+]

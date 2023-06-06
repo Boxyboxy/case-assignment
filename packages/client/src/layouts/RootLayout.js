@@ -7,11 +7,13 @@ function RootLayout() {
   const handleClick = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="root-layout">
       <header>
         <nav>
-          <h1>Todo List</h1>
+          <h1>ALL-TO-DO</h1>
+
           {user ? (
             <NavLink onClick={handleClick}>{user.username}</NavLink>
           ) : (

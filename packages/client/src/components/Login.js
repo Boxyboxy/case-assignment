@@ -18,7 +18,6 @@ export default function Login({ toggle }) {
       .then((response) => {
         console.log(response.data.username);
         console.log(response.data.id);
-
         setUser({ id: response.data.id, username: response.data.username });
         setLoginStatus(`User ${username} logged in`);
         navigate("/list");
